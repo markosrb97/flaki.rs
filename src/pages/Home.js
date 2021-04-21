@@ -3,7 +3,11 @@
 function Home() {
   return (
     <>
-      <h2>Home Page</h2>
+      <div className="container">
+        <div className="row">
+          <div className="category-box"></div>
+        </div>
+      </div>
     </>
   );
 }
