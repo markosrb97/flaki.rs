@@ -8,10 +8,10 @@ function Category() {
       <>
         <div className="container">
             <div className="row justify-content-between mt-5">
-             <div className="category-box">
-             <Link to="/Dog"><img src={dogPhoto} alt="Psi" /></Link>
+            <Link to="/dog"> <div className="category-box">
+             <img src={dogPhoto} alt="Psi" />
                     <h3>Kategorija</h3>
-                </div>
+                </div></Link>
                 <div className="category-box ">
                     <img src={dogPhoto} alt="Macke" />
                     <h3>Kategorija</h3>
