@@ -47,8 +47,8 @@ class Main extends React.Component {
     changePassword = e => {
         this.setState({password: e.target.value});
     }
-
-    sendData = () => {
+    
+    sendData = () => {                           
         let data = {
             firstname: this.state.firstname,
             lastname: this.state.lastname,
@@ -56,13 +56,13 @@ class Main extends React.Component {
             password: this.state.password
         }
 
-        alert(data);
     }
 
     
 
     render() {
 
+        let { firstname, lastname, email, password, type, icon } = this.state;
 
         return (
             // <div className="container"> 
@@ -77,34 +77,34 @@ class Main extends React.Component {
                                 <div className="d-flex space-between">
                                     <div className="custom-input custom-input-small">
                                         <div className="custom-input-img">
-                                            <img src={personIcon}></img>
+                                            <img src={personIcon}  alt="preson_icon"></img>
                                         </div>
-                                        <input className="input-field-custom" type="text" placeholder="Ime" onChange={ (e) => this.changeFirstName(e)}></input>
+                                        <input className="input-field-custom" type="text" defaultValue={firstname} placeholder="Ime" onChange={ (e) => this.changeFirstName(e)}></input>
                                     </div>
                                     <div className="custom-input custom-input-small">
                                         <div className="custom-input-img">
-                                            <img src={personIcon}></img>
+                                            <img src={personIcon} alt="preson_icon"></img>
                                         </div>
-                                        <input className="input-field-custom" type="text" placeholder="Prezime" onChange={ (e) => this.changeLastName(e)}></input>
+                                        <input className="input-field-custom" type="text" defaultValue={lastname} placeholder="Prezime" onChange={ (e) => this.changeLastName(e)}></input>
                                     </div>
                                 </div>
                                 <div className="custom-input">
                                     <div className="custom-input-img">
-                                        <img src={emailIcon}></img>
+                                        <img src={emailIcon}  alt="email_icon"></img>
                                     </div>
-                                    <input className="input-field-custom"  type="email" placeholder="Unesite vaš Email" onChange={ (e) => this.changeEmail(e)}></input>
+                                    <input className="input-field-custom"  type="email" defaultValue={email} placeholder="Unesite vaš Email" onChange={ (e) => this.changeEmail(e)}></input>
                                 </div>
                                 <div className="custom-input">
                                     <div className="custom-input-img">
-                                        <img src={this.state.icon} onClick={this.showHide}></img>
+                                        <img src={icon}  alt="eye_icon" onClick={this.showHide}></img>
                                     </div>
-                                    <input className="input-field-custom" type={this.state.type} placeholder="Unesite vašu šifru" onChange={ (e) => this.changePassword(e)}></input>
+                                    <input className="input-field-custom" type={type} defaultValue={password} placeholder="Unesite vašu šifru" onChange={ (e) => this.changePassword(e)}></input>
                                 </div>
                                 <button type="submit" className="btn text-center">Registrujte se</button>
                             </form>
                         </div>
                         <div className="big-image">
-                            <img src={bigImage}></img>
+                            <img src={bigImage}  alt="big_img"></img>
                         </div>
                     </div>
                // </div>
