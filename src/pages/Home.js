@@ -8,7 +8,7 @@ function Home() {
     <Router>
     <Category />
       <Switch>
-        <Route path='/Dog' component={Dog}>test</Route>
+        <Route path='/Dog' component={Dog}></Route>
       </Switch>
     </Router>
     
