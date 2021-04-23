@@ -1,13 +1,17 @@
-
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import Category from '../components/Category';
+import Dog from '../pages/Dog';
 
 function Home() {
   return (
     <>
-      <div className="container">
-        <div className="row">
-          <div className="category-box"></div>
-        </div>
-      </div>
+    <Router>
+    <Category />
+      <Switch>
+        <Route path='/Dog' component={Dog}>test</Route>
+      </Switch>
+    </Router>
+    
     </>
   );
 }
