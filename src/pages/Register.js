@@ -19,7 +19,8 @@ class Main extends React.Component {
             firstname: "",
             lastname: "",
             email: "",
-            password: ""
+            password: "",
+            errors: {}
 
         }
     }
@@ -47,15 +48,68 @@ class Main extends React.Component {
     changePassword = e => {
         this.setState({password: e.target.value});
     }
-    
-    sendData = () => {                           
-        let data = {
-            firstname: this.state.firstname,
-            lastname: this.state.lastname,
-            email: this.state.email,
-            password: this.state.password
+
+    formValidation = () => {
+        let { firstname, lastname, email, password } = this.state;
+        let error = {};
+        let formIsValid = true;
+
+        if (firstname === "") {
+            formIsValid = false;
+            error['firstname'] = "Obavezno polje";
         }
 
+        if(firstname !== ""){
+            if(!firstname.match(/^[a-zA-Z]+$/)){
+               formIsValid = false;
+               error['firstname'] = "Nedozvoljeni karakteri";
+            }        
+         }
+
+        if (lastname === "") {
+            formIsValid = false;
+            error['lastname'] = "Obavezno polje";
+        }
+
+        if(lastname !== ""){
+            if(!lastname.match(/^[a-zA-Z]+$/)){
+               formIsValid = false;
+               error['lastname'] = "Nedozvoljeni karakteri";
+            }        
+         }
+
+        if (email === "") {
+            formIsValid = false;
+            error['email'] = "Obavezno polje";
+        }
+
+        if(email !== ""){
+            let lastAtPos = email.lastIndexOf('@');
+            let lastDotPos = email.lastIndexOf('.');
+
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && email.indexOf('@@') === -1 && lastDotPos > 2 && (email.length - lastDotPos) > 2)) {
+               formIsValid = false;
+               error["email"] = "Email nije ispravan";
+             }
+        }  
+
+        if (password === "") {
+            formIsValid = false;
+            error['password'] = "Obavezno polje";
+        }
+
+        this.setState({errors: error});
+        return formIsValid;
+    }
+    
+    sendData = (event) => {     
+        event.preventDefault(); 
+        
+        if (this.formValidation()){ 
+            console.log("Uspesno")
+        } else { 
+            console.log("Forma nije popunjena")
+        }
     }
 
     
@@ -65,11 +119,9 @@ class Main extends React.Component {
         let { firstname, lastname, email, password, type, icon } = this.state;
 
         return (
-            // <div className="container"> 
-               // <div className="row">
                     <div className="register">
                         <div className="login-form">
-                            <form onSubmit = {() => this.sendData()} className="text-center" >
+                            <form onSubmit = {this.sendData} className="text-center" >
                                 <a href='/'>
                                     <img className="form-logo" src={logo} alt="Logo"></img>
                                 </a>
@@ -80,35 +132,37 @@ class Main extends React.Component {
                                             <img src={personIcon}  alt="preson_icon"></img>
                                         </div>
                                         <input className="input-field-custom" type="text" defaultValue={firstname} placeholder="Ime" onChange={ (e) => this.changeFirstName(e)}></input>
+                                        <h6 className="error-msg">{this.state.errors["firstname"]}</h6>
                                     </div>
                                     <div className="custom-input custom-input-small">
                                         <div className="custom-input-img">
                                             <img src={personIcon} alt="preson_icon"></img>
                                         </div>
                                         <input className="input-field-custom" type="text" defaultValue={lastname} placeholder="Prezime" onChange={ (e) => this.changeLastName(e)}></input>
+                                        <h6 className="error-msg">{this.state.errors["lastname"]}</h6>
                                     </div>
                                 </div>
-                                <div className="custom-input">
+                                <div className="custom-input mb-20">
                                     <div className="custom-input-img">
                                         <img src={emailIcon}  alt="email_icon"></img>
                                     </div>
                                     <input className="input-field-custom"  type="email" defaultValue={email} placeholder="Unesite vaš Email" onChange={ (e) => this.changeEmail(e)}></input>
+                                    <h6 className="error-msg">{this.state.errors["email"]}</h6>
                                 </div>
                                 <div className="custom-input">
                                     <div className="custom-input-img">
                                         <img src={icon}  alt="eye_icon" onClick={this.showHide}></img>
                                     </div>
                                     <input className="input-field-custom" type={type} defaultValue={password} placeholder="Unesite vašu šifru" onChange={ (e) => this.changePassword(e)}></input>
+                                    <h6 className="error-msg">{this.state.errors["password"]}</h6>
                                 </div>
-                                <button type="submit" className="btn text-center">Registrujte se</button>
+                                <input type="submit" className="btn text-center" formNoValidate value="Registrujte se" />
                             </form>
                         </div>
                         <div className="big-image">
                             <img src={bigImage}  alt="big_img"></img>
                         </div>
                     </div>
-               // </div>
-            //</div>
         )
     }
 }

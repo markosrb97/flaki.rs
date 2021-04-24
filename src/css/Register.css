@@ -10,6 +10,9 @@
     text-align: center!important;
 }
 
+.mb-20 {
+    margin-bottom: 20px!important;
+}
 
 .register {
     width: 100vw;
@@ -45,6 +48,7 @@
     align-items: center;
     position: relative;
     margin: 10px 0;
+    flex-wrap: wrap;
 }
 
 .custom-input-small {
@@ -92,7 +96,14 @@
     border-top-left-radius: 40%  ;
 }
 
+.error-msg { 
+    color: red;
+    position: absolute;
+    top: 100%;
+}
+
 @media screen and (max-width: 992px) {
+    
     .register {
         background-image: url(../images/test.jpg);
         background-position: center;
