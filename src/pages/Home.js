@@ -5,8 +5,9 @@ import Dog from '../pages/Dog';
 function Home() {
   return (
     <>
-    <Router>
     <Category />
+    <Router>
+    
       <Switch>
         <Route path='/dog' component={Dog}></Route>
       </Switch>
