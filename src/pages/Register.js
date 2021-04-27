@@ -15,11 +15,14 @@ class Main extends React.Component {
 
         this.state = {
             icon: eyeClosed,
+            iconRetype: eyeClosed,
             type: "password",
+            typeRetype: 'password',
             firstname: "",
             lastname: "",
             email: "",
             password: "",
+            passwordRetype: "",
             errors: {}
 
         }
@@ -30,6 +33,14 @@ class Main extends React.Component {
             this.setState({type: 'text', icon: eyeOpen})
         ) : (
             this.setState({type: 'password',  icon: eyeClosed})
+        )
+    }
+
+    showHideRetype = () => {
+        this.state.typeRetype === 'password' ? (
+            this.setState({typeRetype: 'text', iconRetype: eyeOpen})
+        ) : (
+            this.setState({typeRetype: 'password',  iconRetype: eyeClosed})
         )
     }
 
@@ -49,8 +60,12 @@ class Main extends React.Component {
         this.setState({password: e.target.value});
     }
 
+    changePasswordRetype = e => {
+        this.setState({passwordRetype: e.target.value});
+    }
+
     formValidation = () => {
-        let { firstname, lastname, email, password } = this.state;
+        let {firstname, lastname, email, password, passwordRetype} = this.state;
         let error = {};
         let formIsValid = true;
 
@@ -98,6 +113,11 @@ class Main extends React.Component {
             error['password'] = "Obavezno polje";
         }
 
+        if (passwordRetype !== password) {
+            formIsValid = false;
+            error['passwordRetype'] = "Šifre se ne poklapaju"
+        }
+
         this.setState({errors: error});
         return formIsValid;
     }
@@ -116,7 +136,7 @@ class Main extends React.Component {
 
     render() {
 
-        let { firstname, lastname, email, password, type, icon } = this.state;
+        let { firstname, lastname, email, password, type, icon, passwordRetype, iconRetype, typeRetype } = this.state;
 
         return (
                     <div className="register">
@@ -155,6 +175,13 @@ class Main extends React.Component {
                                     </div>
                                     <input className="input-field-custom" type={type} defaultValue={password} placeholder="Unesite vašu šifru" onChange={ (e) => this.changePassword(e)}></input>
                                     <h6 className="error-msg">{this.state.errors["password"]}</h6>
+                                </div>
+                                <div className="custom-input">
+                                    <div className="custom-input-img">
+                                        <img src={iconRetype}  alt="eye_icon" onClick={this.showHideRetype}></img>
+                                    </div>
+                                    <input className="input-field-custom" type={typeRetype} defaultValue={passwordRetype} placeholder="Ponovite vašu šifru" onChange={ (e) => this.changePasswordRetype(e)}></input>
+                                    <h6 className="error-msg">{this.state.errors["passwordRetype"]}</h6>
                                 </div>
                                 <input type="submit" className="btn text-center" formNoValidate value="Registrujte se" />
                             </form>
