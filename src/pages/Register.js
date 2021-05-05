@@ -8,7 +8,7 @@ import eyeClosed from '../images/iconmonstr-eye-8.svg';
 import bigImage from '../images/test.jpg';
 
 
-class Main extends React.Component {
+class Register extends React.Component {
     
     constructor() {
         super();
@@ -140,7 +140,7 @@ class Main extends React.Component {
 
         return (
                     <div className="register">
-                        <div className="login-form">
+                        <div className="register-form">
                             <form onSubmit = {this.sendData} className="text-center" >
                                 <a href='/'>
                                     <img className="form-logo" src={logo} alt="Logo"></img>
@@ -194,4 +194,4 @@ class Main extends React.Component {
     }
 }
 
-export default Main;
+export default Register;
