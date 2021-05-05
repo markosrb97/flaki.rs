@@ -145,7 +145,7 @@ class Main extends React.Component {
                                 <a href='/'>
                                     <img className="form-logo" src={logo} alt="Logo"></img>
                                 </a>
-                                <h2 className="text-center">Napravite nalog</h2>
+                                <h2 className="text-center">Napravitee nalog</h2>
                                 <div className="d-flex space-between">
                                     <div className="custom-input custom-input-small">
                                         <div className="custom-input-img">
