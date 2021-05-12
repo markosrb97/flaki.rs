@@ -1,0 +1,9 @@
+.row h3 {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+}
+.category-box {
+  position: relative;
+  text-align: center;
+}

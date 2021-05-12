@@ -1,12 +1,14 @@
 import './App.css';
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-
-import Header from './components/Header';
+/* Pages */
 import Home from './pages/Home';
 import Login from './pages/Login';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
 import Register from './pages/Register';
+/*Components */
+import Header from './components/Header';
+
 
 function App() {
   return (
@@ -21,6 +23,7 @@ function App() {
           <Route path='/register' component={Register}></Route>
         </Switch>
       </Router>
+      
     </div>
   );
 }
