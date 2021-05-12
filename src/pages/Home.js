@@ -7,7 +7,6 @@ function Home() {
     <>
     <Category />
     <Router>
-    
       <Switch>
         <Route path='/dog' component={Dog}></Route>
       </Switch>
