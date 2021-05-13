@@ -1,4 +1,4 @@
-function Dog() {
+function dog() {
     return (
       <>
         <h2>Dog page</h2>
@@ -6,5 +6,5 @@ function Dog() {
     );
   }
   
-  export default Dog;
+  export default dog;
   
