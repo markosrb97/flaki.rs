@@ -17,13 +17,14 @@ import domesticAnimal from './pages/DomesticAnimal.js';
 import arthropod from './pages/Arthropod.js';
 /*Components */
 import Header from './components/Header';
-
+import Carousel from './components/Carousel'
 
 function App() {
   return (
     <div className="App">
       <Router>
         <Header />
+        <Carousel />
         <Switch>
           <Route exact path='/' component={Home}></Route>
           <Route path='/login' component={Login}></Route>
