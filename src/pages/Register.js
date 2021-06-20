@@ -5,7 +5,7 @@ import personIcon from '../images/iconmonstr-user-6.svg';
 import emailIcon from '../images/iconmonstr-email-2.svg';
 import eyeOpen from '../images/iconmonstr-eye-5.svg';
 import eyeClosed from '../images/iconmonstr-eye-8.svg';
-import bigImage from '../images/test.jpg';
+import bigImage from '../images/puppy.jpg';
 
 
 class Register extends React.Component {
@@ -138,15 +138,15 @@ class Register extends React.Component {
 
         let { firstname, lastname, email, password, type, icon, passwordRetype, iconRetype, typeRetype } = this.state;
 
-        return (
-                    <div className="register">
+        return (   
+                    <div className="register mt-5">
                         <div className="register-form">
                             <form onSubmit = {this.sendData} className="text-center" >
                                 <a href='/'>
                                     <img className="form-logo" src={logo} alt="Logo"></img>
                                 </a>
                                 <h2 className="text-center">Napravitee nalog</h2>
-                                <div className="d-flex space-between">
+                                <div className="d-flex justify-content-between">
                                     <div className="custom-input custom-input-small">
                                         <div className="custom-input-img">
                                             <img src={personIcon}  alt="preson_icon"></img>
