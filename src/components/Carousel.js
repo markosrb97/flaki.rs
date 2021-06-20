@@ -4,8 +4,7 @@ import image1 from '../images/test.jpg'
 
 function carouselSlider() {
     return (
-<div className='container mt-5'>
-<Carousel fade> 
+<Carousel fade className="mt-5"> 
   <Carousel.Item>
     <img
       className="d-block w-100"
@@ -42,7 +41,6 @@ function carouselSlider() {
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
-</div>
     );
 }
 
