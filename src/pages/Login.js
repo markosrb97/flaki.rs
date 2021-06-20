@@ -1,5 +1,5 @@
 import React from 'react';
-import '../css/Login.css'; 
+import '../css/Login.css'
 import logo from '../images/logo.png';
 import emailIcon from '../images/iconmonstr-email-2.svg';
 import eyeOpen from '../images/iconmonstr-eye-5.svg';
