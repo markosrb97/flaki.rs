@@ -1,3 +1,11 @@
+.d-flex {
+    display: flex;
+}
+
+.space-between {
+    justify-content: space-between;
+}
+
 .text-center {
     text-align: center!important;
 }
@@ -6,13 +14,15 @@
     margin-bottom: 20px!important;
 }
 
-.register {
+.login {
+    width: 100vw;
+    overflow-x: hidden;
     display: flex;
     justify-content: space-between;
 }
 
-.register-form {
-    flex-basis: 40%;
+.login-form {
+    width: 50vw;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -79,13 +89,9 @@
 }
 
 .big-image { 
-    flex-basis: 60%;
+    max-width: 60vw;
 }
 
-.big-image img {
-    width: 100%;
-
-}
 
 .error-msg { 
     color: red;
@@ -95,7 +101,7 @@
 
 @media screen and (max-width: 992px) {
     
-    .register {
+    .login {
         background-image: url(../images/test.jpg);
         background-position: center;
         background-size: cover;
@@ -106,7 +112,7 @@
         align-items: center;
     }
 
-    .register-form {
+    .login-form {
         background-color: rgba(255, 255, 255, 0.9);
         padding: 20px 10px;
         border-radius: 20px;
