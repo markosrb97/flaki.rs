@@ -1,19 +1,21 @@
 import Carousel from 'react-bootstrap/Carousel'
-import image from '../images/puppy.jpg'
-import image1 from '../images/test.jpg'
+import '../css/Carousel.css'
+import image from '../images/test-za-slider.jpeg'
+import image1 from '../images/test-za-slider2.png'
+import image2 from '../images/test-za-slider3.jpeg'
 
 function carouselSlider() {
     return (
 <Carousel fade className="mt-5"> 
-  <Carousel.Item>
+  <Carousel.Item className='carousel-item'>
     <img
       className="d-block w-100"
       src={image}
       alt="First slide"
     />
     <Carousel.Caption>
-      <h3>First slide label</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+      <h3>Rifle Barrel Blanks</h3>
+      <p>Nulla vitae elit libero, a pharetra augue mollis interdum."ZPV Proizvodnja" company is committed to strict compliance with all applicable Serbian export control regulations and international regulations regarding traffic in arms.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
@@ -24,20 +26,20 @@ function carouselSlider() {
     />
 
     <Carousel.Caption>
-      <h3>Second slide label</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <h3>Rifle Barrel Blanks</h3>
+      <p>"ZPV Proizvodnja" company is committed to strict compliance with all applicable Serbian export control regulations and international regulations regarding traffic in arms.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
     <img
       className="d-block w-100"
-      src={image}
+      src={image2}
       alt="Third slide"
     />
 
     <Carousel.Caption>
-      <h3>Third slide label</h3>
-      <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+      <h3>Rifle Barrel Blanks</h3>
+      <p>"ZPV Proizvodnja" company is committed to strict compliance with all applicable Serbian export control regulations and international regulations regarding traffic in arms.</p>
     </Carousel.Caption>
   </Carousel.Item>
 </Carousel>
