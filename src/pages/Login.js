@@ -70,7 +70,7 @@ class Login extends React.Component {
                                     </div>
                                     <input className="input-field-custom" type={type} defaultValue={password} placeholder="Unesite vašu šifru" onChange={ (e) => this.changePassword(e)}></input>
                                     </div>
-                                <input type="submit" className="btn text-center" formNoValidate value="Prijavite se" />
+                                <input type="submit" className="login-btn  text-center" formNoValidate value="Prijavite se" />
                             </form>
                         </div>
                         <div className="big-image">

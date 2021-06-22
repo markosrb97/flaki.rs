@@ -183,7 +183,7 @@ class Register extends React.Component {
                                     <input className="input-field-custom" type={typeRetype} defaultValue={passwordRetype} placeholder="Ponovite vašu šifru" onChange={ (e) => this.changePasswordRetype(e)}></input>
                                     <h6 className="error-msg">{this.state.errors["passwordRetype"]}</h6>
                                 </div>
-                                <input type="submit" className="btn text-center" formNoValidate value="Registrujte se" />
+                                <input type="submit" className="register-btn text-center" formNoValidate value="Registrujte se" />
                             </form>
                         </div>
                         <div className="big-image">

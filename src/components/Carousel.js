@@ -6,7 +6,7 @@ import image2 from '../images/test-za-slider3.jpeg'
 
 function carouselSlider() {
     return (
-<Carousel fade className="mt-5"> 
+<Carousel fade> 
   <Carousel.Item className='carousel-item'>
     <img
       className="d-block w-100"

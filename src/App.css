@@ -5,6 +5,8 @@ body {
   font-style: normal;
   font-size: 14px !important;
   font-weight: 400;
+
+  /* Header */
 }
 .navbar-light .navbar-nav .nav-link {
   padding-right: 1rem;
@@ -15,13 +17,57 @@ body {
   font-weight: 500 !important;
   text-transform: uppercase;
 }
-/* .carousel-item img{
-  height: 600px;
-}
-.carousel-item {
-  text-align: center;
 
-} */
+.header-top {
+  height: 50px;
+  background-color: #007bff;
+}
+.header-top a {
+  color: white;
+}
+.header-top-inner{
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.contact-header,
+.login-register-header{
+  display: flex;
+  height: 100%;
+}
+
+.phone-header,
+.register-header
+{
+  border-left: 1px solid white;
+  border-right: 1px solid white;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+}
+
+.email-header,
+.login-header {
+  border-right: 1px solid white;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+ 
+}
+
+.phone-header-icon{
+  margin-right: 5px;
+}
+
+.email-header-icon{
+  margin-right: 10px;
+}
+
+
+ /* Header end */
+
+
 
 
 
