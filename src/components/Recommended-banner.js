@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import Image from "../images/logo.png"
 import Background from "../images/Background.png"
 
+
 var sectionStyle = {
   width: "100%",
   height: "100%",
