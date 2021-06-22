@@ -1,0 +1,19 @@
+.carousel-caption {
+position: absolute;
+top: 30%;
+right: 45%;
+height: 254px;
+background: #FFFFFF;
+opacity: 0.8;
+}
+
+.carousel-caption p, h3 {
+    color: #333333;
+    text-align: left;
+}
+.carousel-caption p{
+    padding: 0 25px;
+}
+.carousel-caption h3{
+    padding-left: 25px;
+}
