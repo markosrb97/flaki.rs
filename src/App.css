@@ -6,7 +6,6 @@ body {
   font-size: 14px !important;
   font-weight: 400;
 }
-
 .navbar-light .navbar-nav .nav-link {
   padding-right: 1rem;
   padding-left: 1rem;
@@ -16,7 +15,6 @@ body {
   font-weight: 500 !important;
   text-transform: uppercase;
 }
-
 /* .carousel-item img{
   height: 600px;
 }
@@ -24,4 +22,6 @@ body {
   text-align: center;
 
 } */
+
+
 

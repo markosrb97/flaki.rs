@@ -18,10 +18,13 @@ import arthropod from './pages/Arthropod.js';
 /*Components */
 import Header from './components/Header';
 import Carousel from './components/Carousel'
+import RecommendedBaner from './components/Recommended-banner'
 
 function App() {
   return (
     <div className="App">
+      <link rel="stylesheet" type="text/css" charset="UTF-8" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick.min.css" /> 
+<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.6.0/slick-theme.min.css" />
       <Router>
         <Header />
         <Carousel />
@@ -42,6 +45,7 @@ function App() {
           <Route path='/Zglavkari' component={arthropod}></Route>
         </Switch>
       </Router>
+      <RecommendedBaner />
       
     </div>
   );
