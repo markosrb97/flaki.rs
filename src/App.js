@@ -1,5 +1,7 @@
 import './App.css';
+
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import 'bootstrap/dist/css/bootstrap.min.css';
 /* Pages */
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -16,6 +18,7 @@ import reptil from './pages/Reptil.js';
 import domesticAnimal from './pages/DomesticAnimal.js';
 import arthropod from './pages/Arthropod.js';
 /*Components */
+import Footer from './components/Footer';
 import Header from './components/Header';
 import Carousel from './components/Carousel'
 import RecommendedBaner from './components/Recommended-banner'
@@ -46,6 +49,7 @@ function App() {
         </Switch>
       </Router>
       <RecommendedBaner />
+      <Footer />
       
     </div>
   );

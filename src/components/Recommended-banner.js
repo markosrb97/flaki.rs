@@ -1,6 +1,14 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import Image from "../images/logo.png"
+import Background from "../images/Background.png"
+
+
+var sectionStyle = {
+  width: "100%",
+  height: "100%",
+  backgroundImage: `url(${Background})`
+};
 
 export default class Responsive extends Component {
   render() {
@@ -39,7 +47,7 @@ export default class Responsive extends Component {
       ]
     };
     return (
-      <div>
+      <div style={ sectionStyle }>
         <h2> Responsive </h2>
         <Slider {...settings}>
           <div>
