@@ -193,7 +193,10 @@ footer p {
   text-align: center;
 }
 /* Footer end */
-
+/* About Us */
+.d-flex-50 {
+  flex-basis: 50%;
+}
 /* Custom for Bootstrap */
 
 .btn-outline-primary {
