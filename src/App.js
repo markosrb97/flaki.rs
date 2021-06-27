@@ -7,7 +7,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
-import Register from './pages/Register';
+import Register from './pages/Register1';
 /*Components */
 import Footer from './components/Footer';
 import Header from './components/Header';

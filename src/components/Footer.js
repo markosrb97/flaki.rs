@@ -12,7 +12,7 @@ function Footer() {
 <li><a href="#">Pricing</a></li>
 <li><a href="#">Contact</a></li>
 </ul>
-<p class="text-center">Copyright @2021 | Designed With by <a href="#">Marko Janko Dusan</a></p>
+<p class="text-center">Copyright @2021 | Designed by <a href="#">Marko Janko Dusan</a></p>
 </div>
 
 </footer>
