@@ -1,9 +1,9 @@
 .text-center {
-    text-align: center!important;
+    text-align: center !important;
 }
 
 .mb-20 {
-    margin-bottom: 20px!important;
+    margin-bottom: 20px !important;
 }
 
 .register {
@@ -62,8 +62,8 @@
     cursor: pointer;
 }
 
-.custom-input-img img{
-    width:18px;
+.custom-input-img img {
+    width: 18px;
 }
 
 .register-btn {
@@ -75,10 +75,10 @@
     cursor: pointer;
     border-radius: 50px;
     margin-top: 50px;
-    text-transform: uppercase!important;
+    text-transform: uppercase !important;
 }
 
-.big-image { 
+.big-image {
     flex-basis: 60%;
 }
 
@@ -87,14 +87,9 @@
 
 }
 
-.error-msg { 
-    color: red;
-    position: absolute;
-    top: 100%;
-}
 
 @media screen and (max-width: 992px) {
-    
+
     .register {
         background-image: url(../images/test.jpg);
         background-position: center;
@@ -113,9 +108,9 @@
         z-index: 2;
         width: 80%;
     }
-    
+
     .big-image {
         display: none;
-     }
+    }
 
 }
