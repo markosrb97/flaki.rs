@@ -7,7 +7,8 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import AboutUs from './pages/AboutUs';
 import Contact from './pages/Contact';
-import Register from './pages/Register';
+import Register from './pages/Register1';
+import RegisterOld from './pages/Register';
 /*Components */
 import Footer from './components/Footer';
 import Header from './components/Header';
@@ -26,6 +27,7 @@ function App() {
           <Route path='/o-nama' component={AboutUs}></Route>
           <Route path='/kontakt' component={Contact}></Route>
           <Route path='/register' component={Register}></Route>
+          <Route path='/registerOld' component={RegisterOld}></Route>
         </Switch>
       </Router>
       <Footer />
