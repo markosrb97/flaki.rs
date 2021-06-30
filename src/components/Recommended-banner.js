@@ -7,15 +7,18 @@ import Background from "../images/Background.png"
 var sectionStyle = {
   width: "100%",
   height: "100%",
+  overflow: "hidden",
   backgroundImage: `url(${Background})`
+  
 };
 
 export default class Responsive extends Component {
   render() {
     var settings = {
       dots: false,
-      infinite: false,
+      infinite: true,
       speed: 500,
+      variableWidth: false,
       slidesToShow: 4,
       slidesToScroll: 1,
       initialSlide: 0,
@@ -47,35 +50,35 @@ export default class Responsive extends Component {
       ]
     };
     return (
-      <div style={ sectionStyle }>
-        <h2> Responsive </h2>
-        <Slider {...settings}>
-          <div>
-            <img src={Image}></img>
+          <div style={ sectionStyle } >
+            <h2> Responsive </h2>
+            <Slider {...settings}>
+                <div >
+                  <img src={Image}></img>
+                </div>
+                <div >
+                <img src={Image}></img>
+                </div>
+                <div >
+                <img src={Image}></img>
+                </div>
+                <div >
+                <img src={Image}></img>
+                </div>
+                <div >
+                <img src={Image}></img>
+                </div>
+                <div >
+                <img src={Image}></img>
+                </div>
+                <div >
+                <img src={Image}></img>
+                </div>
+                <div >
+                <img src={Image}></img>
+                </div>
+            </Slider>
           </div>
-          <div>
-          <img src={Image}></img>
-          </div>
-          <div>
-          <img src={Image}></img>
-          </div>
-          <div>
-          <img src={Image}></img>
-          </div>
-          <div>
-          <img src={Image}></img>
-          </div>
-          <div>
-          <img src={Image}></img>
-          </div>
-          <div>
-          <img src={Image}></img>
-          </div>
-          <div>
-          <img src={Image}></img>
-          </div>
-        </Slider>
-      </div>
     );
   }
 }
