@@ -1,15 +1,11 @@
-import React from 'react';
-import '../css/Register.css';
-import logo from '../images/logo.png';
-import personIcon from '../images/iconmonstr-user-6.svg';
-import emailIcon from '../images/iconmonstr-email-2.svg';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
+import '../css/Register.css'
 import eyeOpen from '../images/iconmonstr-eye-5.svg';
 import eyeClosed from '../images/iconmonstr-eye-8.svg';
-import bigImage from '../images/puppy.jpg';
 
+class SignUp extends Component { 
 
-class Register extends React.Component {
-    
     constructor() {
         super();
 
@@ -24,7 +20,6 @@ class Register extends React.Component {
             password: "",
             passwordRetype: "",
             errors: {}
-
         }
     }
 
@@ -47,7 +42,6 @@ class Register extends React.Component {
     changeFirstName = e => {
         this.setState({firstname: e.target.value});
     }
-
     changeLastName = e => {
         this.setState({lastname: e.target.value});
     }
@@ -118,10 +112,16 @@ class Register extends React.Component {
             error['passwordRetype'] = "Šifre se ne poklapaju"
         }
 
+        if (passwordRetype === "") {
+            formIsValid = false;
+            error['passwordRetype'] = "Obavezno polje"
+        }
+
+
         this.setState({errors: error});
         return formIsValid;
     }
-    
+
     sendData = (event) => {     
         event.preventDefault(); 
         
@@ -132,66 +132,68 @@ class Register extends React.Component {
         }
     }
 
-    
-
     render() {
-
         let { firstname, lastname, email, password, type, icon, passwordRetype, iconRetype, typeRetype } = this.state;
-
-        return (   
-                    <div className="register mt-5">
-                        <div className="register-form">
-                            <form onSubmit = {this.sendData} className="text-center" >
-                                <a href='/'>
-                                    <img className="form-logo" src={logo} alt="Logo"></img>
-                                </a>
-                                <h2 className="text-center">Napravitee nalog</h2>
-                                <div className="d-flex justify-content-between">
-                                    <div className="custom-input custom-input-small">
-                                        <div className="custom-input-img">
-                                            <img src={personIcon}  alt="preson_icon"></img>
-                                        </div>
-                                        <input className="input-field-custom" type="text" defaultValue={firstname} placeholder="Ime" onChange={ (e) => this.changeFirstName(e)}></input>
-                                        <h6 className="error-msg">{this.state.errors["firstname"]}</h6>
-                                    </div>
-                                    <div className="custom-input custom-input-small">
-                                        <div className="custom-input-img">
-                                            <img src={personIcon} alt="preson_icon"></img>
-                                        </div>
-                                        <input className="input-field-custom" type="text" defaultValue={lastname} placeholder="Prezime" onChange={ (e) => this.changeLastName(e)}></input>
-                                        <h6 className="error-msg">{this.state.errors["lastname"]}</h6>
-                                    </div>
-                                </div>
-                                <div className="custom-input mb-20">
-                                    <div className="custom-input-img">
-                                        <img src={emailIcon}  alt="email_icon"></img>
-                                    </div>
-                                    <input className="input-field-custom"  type="email" defaultValue={email} placeholder="Unesite vaš Email" onChange={ (e) => this.changeEmail(e)}></input>
-                                    <h6 className="error-msg">{this.state.errors["email"]}</h6>
-                                </div>
-                                <div className="custom-input">
-                                    <div className="custom-input-img">
-                                        <img src={icon}  alt="eye_icon" onClick={this.showHide}></img>
-                                    </div>
-                                    <input className="input-field-custom" type={type} defaultValue={password} placeholder="Unesite vašu šifru" onChange={ (e) => this.changePassword(e)}></input>
-                                    <h6 className="error-msg">{this.state.errors["password"]}</h6>
-                                </div>
-                                <div className="custom-input">
-                                    <div className="custom-input-img">
-                                        <img src={iconRetype}  alt="eye_icon" onClick={this.showHideRetype}></img>
-                                    </div>
-                                    <input className="input-field-custom" type={typeRetype} defaultValue={passwordRetype} placeholder="Ponovite vašu šifru" onChange={ (e) => this.changePasswordRetype(e)}></input>
-                                    <h6 className="error-msg">{this.state.errors["passwordRetype"]}</h6>
-                                </div>
-                                <input type="submit" className="register-btn text-center" formNoValidate value="Registrujte se" />
-                            </form>
-                        </div>
-                        <div className="big-image">
-                            <img src={bigImage}  alt="big_img"></img>
-                        </div>
+        return (
+            <div className='register-page mb-5'>
+            <form onSubmit = {this.sendData} className='mt-5 mb-5 registration-form'>
+                <div className='register-headline'>
+                    <h3>Sign Up</h3>
+                </div>
+                <div className="form-group">
+                    <label>First name</label>
+                    <input type="text" className={`form-control register-input-name ${!this.state.errors['firstname'] == '' ? 'red-border': ''}`}  placeholder="First name" defaultValue={firstname} onChange={ (e) => this.changeFirstName(e)}/>
+                    <div className='error-msg'>
+                        <h6>{this.state.errors["firstname"]}</h6>
                     </div>
-        )
+                </div>
+
+                <div className="form-group">
+                    <label>Last name</label>
+                    <input type="text" className={`form-control register-input-lastname ${!this.state.errors['lastname'] == '' ? 'red-border': ''}`} placeholder="Last name" defaultValue={lastname} onChange={ (e) => this.changeLastName(e)} />
+                    <div className='error-msg'>
+                        <h6>{this.state.errors["lastname"]}</h6>
+                    </div>
+                </div>
+
+                <div className="form-group">
+                    <label>Email address</label>
+                    <input type="email" className={`form-control register-input-email ${!this.state.errors['email'] == '' ? 'red-border': ''}`} placeholder="Enter email" defaultValue={email} onChange={ (e) => this.changeEmail(e)}/>
+                    <div className='error-msg'>
+                        <h6>{this.state.errors["email"]}</h6>
+                    </div>
+                </div>
+
+                <div className="form-group">
+                    <label>Password</label>
+                    <div className='register-password-eye'>
+                        <img src={icon} alt="eye_icon" onClick={this.showHide}></img>
+                    </div>
+                    <input type={type} className={`form-control register-input-password ${!this.state.errors['password'] == '' ? 'red-border': ''}`} placeholder="Enter password" defaultValue={password} onChange={ (e) => this.changePassword(e)} />
+                    <div className='error-msg'>
+                        <h6>{this.state.errors["password"]}</h6>
+                    </div>
+                </div>
+
+                <div className="form-group">
+                    <label> Retype Password</label>
+                    <div className='register-password-eye'>
+                        <img src={iconRetype} alt="eye_icon" onClick={this.showHideRetype}></img>
+                    </div>
+                    <input type={typeRetype} className={`form-control register-input-password-retype ${!this.state.errors['passwordRetype'] == '' ? 'red-border': ''}`} placeholder="Retype password" defaultValue={passwordRetype} onChange={ (e) => this.changePasswordRetype(e)} />
+                    <div className='error-msg'>
+                        <h6>{this.state.errors["passwordRetype"]}</h6>
+                    </div>
+                </div>
+                
+                <button type="submit" className="register-button btn btn-primary btn-block">Sign Up</button>
+                <p className="forgot-password text-center mt-5">
+                    Already registered? <Link to="/login">Log In</Link>
+                </p>
+            </form>
+            </div>
+        );
     }
 }
 
-export default Register;
+export default SignUp;

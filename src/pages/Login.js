@@ -1,14 +1,11 @@
-import React from 'react';
+import React, { Component } from "react";
+import { Link } from "react-router-dom";
 import '../css/Login.css'
-import logo from '../images/logo.png';
-import emailIcon from '../images/iconmonstr-email-2.svg';
 import eyeOpen from '../images/iconmonstr-eye-5.svg';
 import eyeClosed from '../images/iconmonstr-eye-8.svg';
-import bigImage from '../images/test.jpg';
 
+class LogIn extends Component { 
 
-class Login extends React.Component {
-    
     constructor() {
         super();
 
@@ -16,7 +13,8 @@ class Login extends React.Component {
             icon: eyeClosed,
             type: "password",
             email: "",
-            password: ""
+            password: "",
+            errors: {}
         }
     }
 
@@ -36,6 +34,37 @@ class Login extends React.Component {
         this.setState({password: e.target.value});
     }
 
+
+    formValidation = () => {
+        let {firstname, lastname, email, password, passwordRetype} = this.state;
+        let error = {};
+        let formIsValid = true;
+
+        if (email === "") {
+            formIsValid = false;
+            error['email'] = "Obavezno polje";
+        }
+
+        if(email !== ""){
+            let lastAtPos = email.lastIndexOf('@');
+            let lastDotPos = email.lastIndexOf('.');
+
+            if (!(lastAtPos < lastDotPos && lastAtPos > 0 && email.indexOf('@@') === -1 && lastDotPos > 2 && (email.length - lastDotPos) > 2)) {
+               formIsValid = false;
+               error["email"] = "Email nije ispravan";
+             }
+        }  
+
+        if (password === "") {
+            formIsValid = false;
+            error['password'] = "Obavezno polje";
+        }
+
+
+        this.setState({errors: error});
+        return formIsValid;
+    }
+
     sendData = (event) => {     
         event.preventDefault(); 
         
@@ -47,39 +76,44 @@ class Login extends React.Component {
     }
 
     render() {
-
         let { email, password, type, icon } = this.state;
-
         return (
-                    <div className="login">
-                        <div className="login-form">
-                            <form onSubmit = {this.sendData} className="text-center" >
-                                <a href='/'>
-                                    <img className="form-logo" src={logo} alt="Logo"></img>
-                                </a>
-                                <h2 className="text-center">Prijavite se</h2>
-                                <div className="custom-input mb-20">
-                                    <div className="custom-input-img">
-                                        <img src={emailIcon}  alt="email_icon"></img>
-                                    </div>
-                                    <input className="input-field-custom"  type="email" defaultValue={email} placeholder="Unesite vaš Email" onChange={ (e) => this.changeEmail(e)}></input>
-                                    </div>
-                                <div className="custom-input">
-                                    <div className="custom-input-img">
-                                        <img src={icon}  alt="eye_icon" onClick={this.showHide}></img>
-                                    </div>
-                                    <input className="input-field-custom" type={type} defaultValue={password} placeholder="Unesite vašu šifru" onChange={ (e) => this.changePassword(e)}></input>
-                                    </div>
-                                <input type="submit" className="login-btn  text-center" formNoValidate value="Prijavite se" />
-                            </form>
-                        </div>
-                        <div className="big-image">
-                            <img src={bigImage}  alt="big_img"></img>
-                        </div>
+            <div className='login-page mb-5'>
+            <form onSubmit = {this.sendData} className='mt-5 mb-5 login-form'>
+                <div className='login-headline'>
+                    <h3>Log In</h3>
+                </div>
+                <div className="form-group">
+                    <label>Email address</label>
+                    <input type="email" className={`form-control register-input-email ${!this.state.errors['email'] == '' ? 'red-border': ''}`} placeholder="Enter email" defaultValue={email} onChange={ (e) => this.changeEmail(e)}/>
+                    <div className='error-msg'>
+                        <h6>{this.state.errors["email"]}</h6>
                     </div>
-        )
+                </div>
+
+                <div className="form-group">
+                    <label>Password</label>
+                    <div className='register-password-eye'>
+                        <img src={icon} alt="eye_icon" onClick={this.showHide}></img>
+                    </div>
+                    <input type={type} className={`form-control register-input-password ${!this.state.errors['password'] == '' ? 'red-border': ''}`} placeholder="Enter password" defaultValue={password} onChange={ (e) => this.changePassword(e)} />
+                    <div className='error-msg'>
+                        <h6>{this.state.errors["password"]}</h6>
+                    </div>
+                </div>
+                <button type="submit" className="login-button btn btn-primary btn-block">Login</button>
+                <div className='form-bottom text'>
+                    <p className="text-center mt-5">
+                        Need an account? <Link to="/register">Register</Link>
+                    </p>
+                    <p className='forgot-password text-center'>Forgot password? <Link to="/password_reset">Reset password</Link>
+                    </p>
+
+                </div>
+            </form>
+            </div>
+        );
     }
 }
 
-export default Login;
-  
+export default LogIn;
