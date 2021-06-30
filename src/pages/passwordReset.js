@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import '../css/Register1.css'
+import { Link } from "react-router-dom";
+import '../css/Register.css'
 import eyeOpen from '../images/iconmonstr-eye-5.svg';
 import eyeClosed from '../images/iconmonstr-eye-8.svg';
 
@@ -65,8 +66,6 @@ class SignUp extends Component {
         if (firstname === "") {
             formIsValid = false;
             error['firstname'] = "Obavezno polje";
-            
-             
         }
 
         if(firstname !== ""){
@@ -137,12 +136,13 @@ class SignUp extends Component {
         let { firstname, lastname, email, password, type, icon, passwordRetype, iconRetype, typeRetype } = this.state;
         return (
             <div className='register-page mb-5'>
-            <form onSubmit = {this.sendData} className='mt-5 mb-5'>
-                <h3>Sign Up</h3>
-
+            <form onSubmit = {this.sendData} className='mt-5 mb-5 registration-form'>
+                <div className='register-headline'>
+                    <h3>Sign Up</h3>
+                </div>
                 <div className="form-group">
                     <label>First name</label>
-                    <input type="text" className="form-control register-input-name"  placeholder="First name" defaultValue={firstname} onChange={ (e) => this.changeFirstName(e)}/>
+                    <input type="text" className={`form-control register-input-name ${!this.state.errors['firstname'] == '' ? 'red-border': ''}`}  placeholder="First name" defaultValue={firstname} onChange={ (e) => this.changeFirstName(e)}/>
                     <div className='error-msg'>
                         <h6>{this.state.errors["firstname"]}</h6>
                     </div>
@@ -150,7 +150,7 @@ class SignUp extends Component {
 
                 <div className="form-group">
                     <label>Last name</label>
-                    <input type="text" className="form-control register-input-lastname" placeholder="Last name" defaultValue={lastname} onChange={ (e) => this.changeLastName(e)} />
+                    <input type="text" className={`form-control register-input-lastname ${!this.state.errors['lastname'] == '' ? 'red-border': ''}`} placeholder="Last name" defaultValue={lastname} onChange={ (e) => this.changeLastName(e)} />
                     <div className='error-msg'>
                         <h6>{this.state.errors["lastname"]}</h6>
                     </div>
@@ -158,7 +158,7 @@ class SignUp extends Component {
 
                 <div className="form-group">
                     <label>Email address</label>
-                    <input type="email" className="form-control register-input-email" placeholder="Enter email" defaultValue={email} onChange={ (e) => this.changeEmail(e)}/>
+                    <input type="email" className={`form-control register-input-email ${!this.state.errors['email'] == '' ? 'red-border': ''}`} placeholder="Enter email" defaultValue={email} onChange={ (e) => this.changeEmail(e)}/>
                     <div className='error-msg'>
                         <h6>{this.state.errors["email"]}</h6>
                     </div>
@@ -169,7 +169,7 @@ class SignUp extends Component {
                     <div className='register-password-eye'>
                         <img src={icon} alt="eye_icon" onClick={this.showHide}></img>
                     </div>
-                    <input type={type} className="form-control register-input-password" placeholder="Enter password" defaultValue={password} onChange={ (e) => this.changePassword(e)} />
+                    <input type={type} className={`form-control register-input-password ${!this.state.errors['password'] == '' ? 'red-border': ''}`} placeholder="Enter password" defaultValue={password} onChange={ (e) => this.changePassword(e)} />
                     <div className='error-msg'>
                         <h6>{this.state.errors["password"]}</h6>
                     </div>
@@ -180,15 +180,15 @@ class SignUp extends Component {
                     <div className='register-password-eye'>
                         <img src={iconRetype} alt="eye_icon" onClick={this.showHideRetype}></img>
                     </div>
-                    <input type={typeRetype} className="form-control register-input-password-retype" placeholder="Retype password" defaultValue={passwordRetype} onChange={ (e) => this.changePasswordRetype(e)} />
+                    <input type={typeRetype} className={`form-control register-input-password-retype ${!this.state.errors['passwordRetype'] == '' ? 'red-border': ''}`} placeholder="Retype password" defaultValue={passwordRetype} onChange={ (e) => this.changePasswordRetype(e)} />
                     <div className='error-msg'>
                         <h6>{this.state.errors["passwordRetype"]}</h6>
                     </div>
                 </div>
                 
                 <button type="submit" className="register-button btn btn-primary btn-block">Sign Up</button>
-                <p className="forgot-password text-right">
-                    Already registered <a href="#">sign in?</a>
+                <p className="forgot-password text-center mt-5">
+                    Already registered? <Link to="/login">Log In</Link>
                 </p>
             </form>
             </div>

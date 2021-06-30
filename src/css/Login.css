@@ -1,127 +1,47 @@
-.d-flex {
-    display: flex;
-}
-
-.space-between {
-    justify-content: space-between;
-}
-
-.text-center {
-    text-align: center!important;
-}
-
-.mb-20 {
-    margin-bottom: 20px!important;
-}
-
-.login {
-    width: 100vw;
-    overflow-x: hidden;
-    display: flex;
-    justify-content: space-between;
-}
-
-.login-form {
-    width: 50vw;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.form-logo {
-    width: 70%;
-}
-
-.login-form h2 {
-    font-size: 32px !important;
-    font-weight: 400;
-    color: #04837a;
-    margin: 20px 0;
-}
-
-.custom-input {
-    background-color: rgba(4, 131, 122, 0.2);
+.login-page form {
+    width: 35%;
+    margin: 0px auto;
+    background-color: #ff8303;
+    padding: 60px;
     border-radius: 50px;
-    height: 53px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    margin: 10px 0;
-    flex-wrap: wrap;
+    color: white;
 }
 
-.custom-input-small {
-    width: 48%;
-}
-
-.input-field-custom {
-    background: transparent;
-    border: none;
-    font-size: 14px;
-    color: rgba(4, 131, 122, 0.5);
-    outline: none;
-    width: 100%;
+.login-headline h3{
+    color: white;
     text-align: center;
-    height: 100%;
 }
 
-.custom-input-img {
-    left: 20px;
+.form-group {
+    position: relative;
+}
+
+.login-password-eye {
     position: absolute;
-    cursor: pointer;
+    right: 12px;
+    bottom: 30px;
 }
 
-.custom-input-img img{
-    width:18px;
+.login-password-eye img {
+    width: 18px;
 }
 
-.login-btn {
-    background-color: #47ddd4;
-    padding: 17px 70px;
-    font-size: 18px !important;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-    border-radius: 50px;
-    margin-top: 50px;
-    text-transform: uppercase!important;
+.error-msg {
+    width: 100%;
+    text-align: right;
 }
 
-.big-image { 
-    max-width: 60vw;
-}
-
-
-.error-msg { 
+.error-msg h6 {
+    display: inline-block;
     color: red;
-    position: absolute;
-    top: 100%;
+    margin-bottom: 0;
 }
 
-@media screen and (max-width: 992px) {
-    
-    .login {
-        background-image: url(../images/test.jpg);
-        background-position: center;
-        background-size: cover;
-        height: 100vh;
-        min-height: 100vh;
-        width: 100%;
-        justify-content: center;
-        align-items: center;
-    }
+.login-button {
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
 
-    .login-form {
-        background-color: rgba(255, 255, 255, 0.9);
-        padding: 20px 10px;
-        border-radius: 20px;
-        z-index: 2;
-        width: 80%;
-    }
-    
-    .big-image {
-        display: none;
-     }
-
+.red-border {
+    border: 3px solid red !important;
 }
