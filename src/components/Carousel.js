@@ -15,7 +15,7 @@ function carouselSlider() {
     />
     <Carousel.Caption>
       <h3>Rifle Barrel Blanks</h3>
-      <p>Nulla vitae elit libero, a pharetra augue mollis interdum."ZPV Proizvodnja" company is committed to strict compliance with all applicable Serbian export control regulations and international regulations regarding traffic in arms.</p>
+      <p>Nulla vitaee elit libero, a pharetra augue mollis interdum."ZPV Proizvodnja" company is committed to strict compliance with all applicable Serbian export control regulations and international regulations regarding traffic in arms.</p>
     </Carousel.Caption>
   </Carousel.Item>
   <Carousel.Item>
